@@ -12,7 +12,7 @@ class Player:
     def __init__(self):
         # プレイヤー自身の座標などの状態を定義
         self.x, self.y = (0, 0)
-        self.w, self.h = (10, 10)
+        self.w, self.h = (8, 8)
         self.color = 9
 
     def update(self):
@@ -40,7 +40,7 @@ class Player:
 class Target:
     def __init__(self, x, y):
         self.x, self.y = (x, y)
-        self.w, self.h = (10, 10)
+        self.w, self.h = (8, 8)
         self.color = 11
 
     def update(self):
@@ -50,7 +50,7 @@ class Target:
             self.x = WINDOW_W
 
     def draw(self):
-        px.blt(self.x, self.y, 0, 10, 0, self.w, self.h, 0)
+        px.blt(self.x, self.y, 0, 8, 0, self.w, self.h, 0)
 
 
 class App:
