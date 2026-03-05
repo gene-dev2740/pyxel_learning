@@ -2,17 +2,20 @@ import pyxel as px
 
 WINDOW_W = 120
 WINDOW_H = 120
+BLOCK_SIZE = 8
+
 # シーンの定数定義
 SCENE_TITLE = 0
 SCENE_PLAY = 1
 SCENE_GAMEOVER = 2
 
 
+
 class Player:
     def __init__(self):
         # プレイヤー自身の座標などの状態を定義
         self.x, self.y = (0, 0)
-        self.w, self.h = (8, 8)
+        self.w, self.h = (BLOCK_SIZE, BLOCK_SIZE)
         self.color = 9
 
     def update(self):
@@ -24,13 +27,13 @@ class Player:
             self.y += 1
 
         if self.x > WINDOW_W:
-            self.x = -10
+            self.x = -BLOCK_SIZE
 
-        if self.y == -10:
+        if self.y == -BLOCK_SIZE:
             self.y = WINDOW_H
 
         if self.y > WINDOW_H:
-            self.y = -10
+            self.y = -BLOCK_SIZE
 
     def draw(self):
         # プレイヤー自身の描画処理
@@ -40,13 +43,13 @@ class Player:
 class Target:
     def __init__(self, x, y):
         self.x, self.y = (x, y)
-        self.w, self.h = (8, 8)
+        self.w, self.h = (BLOCK_SIZE, BLOCK_SIZE)
         self.color = 11
 
     def update(self):
         self.x -= 1
 
-        if self.x < -10:
+        if self.x < -BLOCK_SIZE:
             self.x = WINDOW_W
 
     def draw(self):
